@@ -30,19 +30,33 @@ def create_cells():
     #     row = []
     #     for a_column in range(amount_of_cells):
     #         pass
-
-    pass
+    # We want to create 16x16 new cells and place into a 2d list
+    my_cell = Cell(0, 0, CELL_WIDTH, CELL_HEIGHT, bomb_chance)
+    cells.append(my_cell)
 
 
 def draw_cells():
     """In this function we want to draw each cell, i.e call upon each cells .draw() method!"""
     # Hint: take inspiration from the forloop in create_cells to loop over all the cells
-    pass
+    for my_cell in cells:
+        print("nu är vi draw_cells funktionen!")
+        my_cell.draw(screen)
+
+
+def draw_test_distance():
+    x1, y1 = 40, 40
+    x2, y2 = 70, 70
+    pygame.draw.circle(screen, "red", (x1, y1), 5)
+    pygame.draw.circle(screen, "red", (x2, y2), 5)
+
+    distance_between = measure_distance(x1, y1, x2, y2)
+    print(distance_between)
 
 
 def draw():
     """This function handles all the drawings to the screen, such as drawing rectangles, objects etc"""
-    draw_cells()
+    # draw_cells()
+    draw_test_distance()
 
 
 def event_handler(event):
